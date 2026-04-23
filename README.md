@@ -12,8 +12,9 @@ MD 문서 기반 정보 검색 및 근거 기반 응답(RAG) 평가 트랙.
 | `file_hit_at_3` | 상위 3개 문서 중 정답 문서 포함 여부 (0/1) |
 | `span_recall` | gold span 중 모델 응답에 포함된 비율 (0~1) |
 | `answer_f1` | gold answer가 모델 응답에 부분문자열로 포함되는지 (0/1) |
+| `faithfulness` | 답변의 각 문장이 문서 내용에 근거하는지 비율 (0~1) |
 
-**성공 조건**: `file_hit_at_3 > 0 AND span_recall >= 0.5`
+**성공 조건**: `file_hit_at_3 > 0 AND span_recall >= 0.5 AND faithfulness >= 0.5`
 
 **실패 단계**: `retrieval` (문서检索 실패) 또는 `answer` (문서는 찾았으나 답변 불량)
 
